@@ -26,12 +26,19 @@ function App(props) {
       name={task.name}
       completed={task.completed}
       toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
     />
   ));
 
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
+  }
+
+  function deleteTask(id) {
+    console.log(id);
+    const remainingTasks = tasks.filter((task) => id !== task.id);
+    setTasks(remainingTasks);
   }
 
   const taskNoun = taskList.length !== 1 ? 'tasks' : 'task';
