@@ -1,10 +1,16 @@
 const express = require('express');
-const router = require('./routes');
+const todoRouter = require('./routes/todoRoutes');
+const createUserRouter = require('./routes/CreateUserRoutes');
+const loginUserRouter = require('./routes/LoginUserRoutes');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/api', router);
+// Routes
+
+app.use('/api', todoRouter);
+app.use('/register', createUserRouter);
+app.use('/login', loginUserRouter);
 
 module.exports = app;
