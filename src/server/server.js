@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const app = require('./app');
 
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({ path: './config.env' });
 
-mongoose.connect(process.env.DB_URL, {
+const databaseUrl = process.env.DB_URL.replace('<PASSWORD>', process.env.PASSWORD);
+
+mongoose.connect(databaseUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
