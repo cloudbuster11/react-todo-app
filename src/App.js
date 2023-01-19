@@ -67,7 +67,7 @@ function App() {
   }
 
   function deleteTask(id) {
-    const remainingTasks = tasks.filter((task) => id !== task.id);
+    const remainingTasks = tasks.filter((task) => id !== task._id);
     setTasks(remainingTasks);
   }
 
