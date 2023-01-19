@@ -14,11 +14,11 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-function App(props) {
+function App() {
+  const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
 
-  // Test
-  const [tasks, setTasks] = useState([]);
+  // Hämtar data från api
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,12 +46,13 @@ function App(props) {
     setTasks(updatedTasks);
   }
 
+  console.log(tasks);
   const taskList = tasks
     .filter(FILTER_MAP[filter])
     .map((task) => (
       <Todo
-        key={task.id}
-        id={task.id}
+        key={task._id}
+        id={task._id}
         name={task.name}
         completed={task.completed}
         toggleTaskCompleted={toggleTaskCompleted}
