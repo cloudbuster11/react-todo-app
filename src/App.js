@@ -73,7 +73,7 @@ function App() {
 
   function editTask(id, newName) {
     const editedTaskList = tasks.map((task) => {
-      if (id === task.id) {
+      if (id === task._id) {
         return { ...task, name: newName };
       }
       return task;
