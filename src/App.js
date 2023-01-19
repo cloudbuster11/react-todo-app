@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import axios from 'axios';
 
 import Todo from './components/Todo';
 import Form from './components/Form';
@@ -14,8 +15,22 @@ const FILTER_MAP = {
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
-  const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All');
+
+  // Test
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get('http://localhost:3001/api/');
+
+      setTasks(result.data.data.todoList);
+    };
+
+    fetchData();
+  }, []);
+
+  // Slut test
 
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton key={name} name={name} isPressed={name === filter} setFilter={setFilter} />
@@ -74,7 +89,7 @@ function App(props) {
       <Form addTask={addTask} />
       <div className='filters btn-group stack-exception'>{filterList}</div>
       <h2 id='list-heading'>{headingText}</h2>
-      <ul role='list' className='todo-list stack-large stack-exception' aria-labelledby='list-heading'>
+      <ul className='todo-list stack-large stack-exception' aria-labelledby='list-heading'>
         {taskList}
       </ul>
     </div>
