@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
-import API from './api';
+// import API from './api';
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 import axios from 'axios';
+import { Switch, Route } from 'react-router-dom';
 
 const FILTER_MAP = {
   All: () => true,
@@ -31,13 +30,16 @@ function App() {
     fetchData();
   }, []);
 
-  // Slut test
-
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton key={name} name={name} isPressed={name === filter} setFilter={setFilter} />
   ));
 
-  function toggleTaskCompleted(id) {
+  function toggleTaskCompleted(id, completed) {
+    axios.patch(`http://localhost:3001/api/${id}`, { completed: !completed }).then((res) => {
+      // console.log(res);
+      // console.log(res.data);
+    });
+
     const updatedTasks = tasks.map((task) => {
       if (id === task._id) {
         return { ...task, completed: !task.completed };
@@ -47,7 +49,6 @@ function App() {
     setTasks(updatedTasks);
   }
 
-  console.log(tasks);
   const taskList = tasks
     .filter(FILTER_MAP[filter])
     .map((task) => (
@@ -74,11 +75,18 @@ function App() {
   }
 
   function deleteTask(id) {
+    axios.delete(`http://localhost:3001/api/${id}`);
     const remainingTasks = tasks.filter((task) => id !== task._id);
+
     setTasks(remainingTasks);
   }
 
   function editTask(id, newName) {
+    axios.patch(`http://localhost:3001/api/${id}`, { name: newName }).then((res) => {
+      // console.log(res);
+      // console.log(res.data);
+    });
+
     const editedTaskList = tasks.map((task) => {
       if (id === task._id) {
         return { ...task, name: newName };

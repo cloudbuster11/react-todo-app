@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Register from './components/Register';
+import Login from './components/Login';
+import { BrowserRouter } from 'react-router-dom';
 // import { Api } from './api';
 
 // const DATA = Api;
@@ -17,6 +20,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    <Register />
+    <Login />
   </React.StrictMode>
 );
