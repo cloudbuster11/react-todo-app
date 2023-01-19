@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
-import axios from 'axios';
+// import axios from 'axios';
 
+import API from './api';
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
+import axios from 'axios';
 
 const FILTER_MAP = {
   All: () => true,
@@ -63,7 +64,12 @@ function App() {
 
   // Id ska komma från mongodb.
   function addTask(name) {
-    const newTask = { id: `todo-${nanoid()}`, name, completed: false };
+    const newTask = { name, completed: false };
+
+    axios.post(`http://localhost:3001/api/`, newTask).then((res) => {
+      // console.log(res);
+      // console.log(res.data);
+    });
     setTasks([...tasks, newTask]);
   }
 
