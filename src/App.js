@@ -38,7 +38,7 @@ function App() {
 
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
-      if (id === task.id) {
+      if (id === task._id) {
         return { ...task, completed: !task.completed };
       }
       return task;
@@ -61,6 +61,7 @@ function App() {
       />
     ));
 
+  // Id ska komma från mongodb.
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
