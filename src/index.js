@@ -5,6 +5,7 @@ import App from './App';
 import Register from './components/Register';
 import Login from './components/Login';
 import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 // import { Api } from './api';
 
 // const DATA = Api;
@@ -20,10 +21,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    <Register />
-    <Login />
+    {/* <BrowserRouter> */}
+    <App />
+    {/* </BrowserRouter> */}
+    {/* <Register />
+    <Login /> */}
   </React.StrictMode>
 );
