@@ -31,7 +31,7 @@ export default function Login() {
         cookies.set('TOKEN', result.data.token, {
           path: '/',
         });
-        // redirect user to the auth page
+        // redirect user
         window.location.href = '/todo';
       })
       .catch((err) => {

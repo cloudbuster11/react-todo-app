@@ -4,6 +4,7 @@ import Todo from './Todo';
 import Form from './Form';
 import FilterButton from './FilterButton';
 import axios from 'axios';
+import Logout from './LogOut';
 
 const FILTER_MAP = {
   All: () => true,
@@ -100,6 +101,7 @@ function TodoApp() {
 
   return (
     <div className='todoapp stack-large'>
+      <Logout />
       <h1>React Todo App</h1>
       <Form addTask={addTask} />
       <div className='filters btn-group stack-exception'>{filterList}</div>
