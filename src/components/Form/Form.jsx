@@ -5,7 +5,7 @@ import AddNewCollection from '../AddNewCollection/AddNewCollection';
 
 import './Form.css';
 
-export default function Form({ addTask, uniqueCollections, filterCollection, FILTER_COLLECTION_NAMES }) {
+export default function Form({ addTask, uniqueCollections, filterCollection }) {
   const [name, setName] = useState('');
   const [targetCollection, setTargetCollection] = useState(filterCollection);
 
@@ -36,7 +36,6 @@ export default function Form({ addTask, uniqueCollections, filterCollection, FIL
         key={collection}
         setTargetCollection={setTargetCollection}
         handleCategoryNewTask={handleCategoryNewTask}
-        // handleNewCategoryInput={handleNewCategoryInput}
       />
     );
   });
@@ -65,14 +64,6 @@ export default function Form({ addTask, uniqueCollections, filterCollection, FIL
           handleNewCategoryInput(e);
         }}
       ></input>
-
-      {/* <AddNewCollection
-        isPressed={name === collection}
-        uniqueCollections={uniqueCollections}
-        filterCollection={filterCollection}
-        handleCategoryNewTask={handleCategoryNewTask}
-        handleNewCategoryInput={handleNewCategoryInput}
-      /> */}
     </form>
   );
 }

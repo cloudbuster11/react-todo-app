@@ -181,12 +181,7 @@ function TodoApp() {
           </button>
           <h2 className='todo__activecategory'>{filterCollection}</h2>
         </section>
-        <Form
-          addTask={addTask}
-          uniqueCollections={uniqueCollections}
-          filterCollection={filterCollection}
-          FILTER_COLLECTION_NAMES={FILTER_COLLECTION_NAMES}
-        />
+        <Form addTask={addTask} uniqueCollections={uniqueCollections} filterCollection={filterCollection} />
         <section className='todo__filterbtns'>{filterList}</section>
         <p className='tasks__remaining'>{headingText}</p>
 
