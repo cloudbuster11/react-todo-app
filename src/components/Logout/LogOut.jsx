@@ -11,10 +11,8 @@ export default function LogoutComponent() {
   }
 
   return (
-    <div>
-      <button type='submit' variant='danger' onClick={() => logOut()}>
-        Logout
-      </button>
-    </div>
+    <button className='btn btn-logout btn-border' type='submit' variant='danger' onClick={() => logOut()}>
+      Sign out
+    </button>
   );
 }

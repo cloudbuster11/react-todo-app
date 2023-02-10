@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-
 import Cookies from 'universal-cookie';
+
+import './Login.css';
+
 const cookies = new Cookies();
 
 export default function Login() {
@@ -41,13 +43,10 @@ export default function Login() {
 
   return (
     <>
-      <h2>Login</h2>
-      <div className='form'>
-        <form className='form-body' onSubmit={(e) => handleSubmit(e)}>
-          <div className='email'>
-            <label className='form__label' htmlFor='email'>
-              Email{' '}
-            </label>
+      <section className='form'>
+        <h2 className='form__title'>Sign in.</h2>
+        <form className='form__body' onSubmit={(e) => handleSubmit(e)}>
+          <article className='email'>
             <input
               type='email'
               id='login__email'
@@ -57,11 +56,8 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-          <div className='password'>
-            <label className='form__label' htmlFor='password'>
-              Password{' '}
-            </label>
+          </article>
+          <article className='password'>
             <input
               className='form__input'
               type='password'
@@ -71,20 +67,16 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <div className='footer'>
-            <button type='submit' className='btn' onClick={(e) => handleSubmit(e)}>
-              Login
+          </article>
+          <article className='form__footer'>
+            <button type='submit' className='btn btn-login btn-colored' onClick={(e) => handleSubmit(e)}>
+              Sign in
             </button>
             {/* display success message */}
-            {login ? (
-              <p className='text-success'>You Are Logged in Successfully</p>
-            ) : (
-              <p className='text-danger'>You Are Not Logged in</p>
-            )}
-          </div>
+            {!login ? <p className='text-danger'>You Are Not Logged in</p> : null()}
+          </article>
         </form>
-      </div>
+      </section>
     </>
   );
 }

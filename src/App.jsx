@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoApp from './components/TodoApp';
+import TodoApp from './components/TodoApp/TodoApp';
 
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Login from './components/Login';
-import ProtectedRoutes from './components/ProtectedRoutes';
+import Login from './components/Login/Login';
+import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
 
 function App() {
   return (

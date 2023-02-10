@@ -2,7 +2,14 @@ const todoModel = require('../models/todoModels');
 
 exports.getAllTodos = async (req, res) => {
   try {
-    const todoList = await todoModel.find();
+    const queryObj = { ...req.query };
+
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+    let query = todoModel.find(JSON.parse(queryStr));
+    // console.log(query);
+    const todoList = await query;
 
     res.status(200).json({
       status: 'success',

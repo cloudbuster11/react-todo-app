@@ -1,0 +1,15 @@
+.collections__title {
+  padding: 1rem;
+}
+
+.collections__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.collections__item {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  /* background-color: #272732; */
+}

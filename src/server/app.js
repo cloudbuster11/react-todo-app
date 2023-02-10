@@ -17,8 +17,8 @@ app.use(cors(corsOptions));
 
 // Routes
 
-app.use('/api', todoRouter);
 app.use('/login', loginUserRouter);
+app.use('/api', auth, todoRouter);
 
 // authentication endpoint
 // app.get('/auth-endpoint', auth, (req, res) => {

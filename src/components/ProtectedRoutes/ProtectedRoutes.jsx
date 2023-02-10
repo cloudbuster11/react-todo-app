@@ -1,12 +1,11 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import TodoApp from './TodoApp';
+import TodoApp from '../TodoApp/TodoApp';
 const cookies = new Cookies();
 
 export default function ProtectedRoutes({ element: Element, ...rest }) {
   const location = useLocation();
-  console.log(Element);
 
   const token = cookies.get('TOKEN');
 

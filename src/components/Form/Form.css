@@ -1,0 +1,40 @@
+.addtask__container {
+  width: 100%;
+}
+
+.addtask__input {
+  height: 45px;
+  width: 100%;
+  padding-left: 3rem;
+  background-color: #17181f;
+  color: #fff;
+  border-radius: 8px;
+  /* position: absolute; */
+}
+
+.btn-addtask {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: -32px;
+  left: 15px;
+  border: none;
+  background-color: #f5739d;
+  color: #000;
+  font-size: 24px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addtask__collectionstitle {
+  margin-bottom: 0.5rem;
+}
+
+.addtask__newcollection {
+  height: 27px;
+  width: 100%;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
